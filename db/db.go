@@ -18,7 +18,11 @@ func Init() {
     fmt.Println(err)
   }
   defer db.Close()
-  db.AutoMigrate(&models.User{}, &models.Article{}, &models.Account{})
+
+  db.AutoMigrate(
+    &models.User{},
+    &models.Article{},
+    &models.Account{})
 }
 
 func GetDB() *gorm.DB {
