@@ -3,6 +3,7 @@ package db
 import (
   "fmt"
   "gitlab.com/imbarwinata/go-rest-core-v1/app/models"
+  "gitlab.com/imbarwinata/go-rest-core-v1/config"
 
    _ "github.com/go-sql-driver/mysql"
    "github.com/jinzhu/gorm"
@@ -13,7 +14,15 @@ var db *gorm.DB
 var err error
 
 func Init() {
-  db, _ = gorm.Open("mysql", "root:lockedimbar@tcp(127.0.0.1:3306)/gin-gorm?charset=utf8&parseTime=True&loc=Local")
+  config    := config.GetConfig()
+  host      := config.GetString("db.host")
+  port      := config.GetString("db.port")
+  database  := config.GetString("db.database")
+  username  := config.GetString("db.username")
+  password  := config.GetString("db.password")
+
+  db, _ = gorm.Open("mysql", username + ":" + password +"@tcp(" + host + ":" + port + ")/" + database + "?charset=utf8&parseTime=True&loc=Local")
+
   if err != nil {
     fmt.Println(err)
   }

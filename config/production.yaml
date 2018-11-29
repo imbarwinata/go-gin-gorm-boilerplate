@@ -1,2 +1,8 @@
-server.port: ":8080"
+server.port: ":8000"
 server.api_key: "kmzway87aa"
+
+db.host: "127.0.0.1"
+db.port: "3306"
+db.database: "gin-gorm"
+db.username: "root"
+db.password: "lockedimbar"

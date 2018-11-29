@@ -12,7 +12,6 @@ func NewRouter() *gin.Engine {
 	router.Use(gin.Recovery())
 
 	health := new(controllers.HealthController)
-
 	router.GET("/health", health.Status)
 
 	v1 := router.Group("v1")
@@ -22,7 +21,6 @@ func NewRouter() *gin.Engine {
 			authController := new(controllers.AuthController)
 			authGroup.POST("/", authController.Auth)
 		}
-
 		// Authentication required
 		authorized := v1.Group("/")
 		authorized.Use(middleware.JWTMiddleware())
