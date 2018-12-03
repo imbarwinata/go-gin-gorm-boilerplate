@@ -1,7 +1,7 @@
 package models
 
 import (
-	"gitlab.com/imbarwinata/go-rest-core-v1/app/forms"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/forms"
 )
 
 //User data struct

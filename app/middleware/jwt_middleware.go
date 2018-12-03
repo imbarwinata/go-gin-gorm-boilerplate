@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/imbarwinata/go-rest-core-v1/app/models"
-	"gitlab.com/imbarwinata/go-rest-core-v1/helpers/jwtauth"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/models"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/helpers/jwtauth"
 )
 
 func jwtAbort(c *gin.Context, msg string) {
@@ -31,7 +31,7 @@ func JWTMiddleware() gin.HandlerFunc {
 		}
 
 		parts := strings.SplitN(authHeader, " ", 2)
-		if !(len(parts) == 2 && parts[0] == "Bearer") {
+		if !(len(parts) == 2 && parts[0] == "Boilerplate") {
 			jwtAbort(c, "Authorization header tidak valid")
 			return
 		}

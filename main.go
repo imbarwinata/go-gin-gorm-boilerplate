@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.com/imbarwinata/go-rest-core-v1/config"
-	"gitlab.com/imbarwinata/go-rest-core-v1/db"
-	"gitlab.com/imbarwinata/go-rest-core-v1/routes"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/config"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/db"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/routes"
 )
 
 func main() {

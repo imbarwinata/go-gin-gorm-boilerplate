@@ -2,8 +2,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"gitlab.com/imbarwinata/go-rest-core-v1/app/forms"
-	"gitlab.com/imbarwinata/go-rest-core-v1/app/models"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/forms"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/models"
+	"github.com/imbarwinata/go-gin-gorm-bolerplate/helpers/passhash"
 )
 
 type UserController struct{}
@@ -14,7 +15,6 @@ type User struct {
 	lastname string
 }
 var userModel = new(models.User)
-var err error
 
 func (u UserController) Gets(c *gin.Context) {
 	status := 500
@@ -33,7 +33,7 @@ func (u UserController) Gets(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	c.JSON(200, gin.H{"message": "Success", "status": 200, "user": users})
+	c.JSON(200, gin.H{"message": "Success", "status": 200, "users": users})
 	return
 }
 
@@ -66,16 +66,17 @@ func (u UserController) Insert(c *gin.Context) {
 	var validUser forms.AddUserValidation
 
 	if err = c.BindJSON(&validUser); err != nil || api_key != api_key_match {
-			if api_key != api_key_match {
-				panic("dibutuhkan api key yang benar untuk mengakses ini")
-			}
-			c.JSON(500, gin.H{ "error":  err.Error(), "status": 500 })
-			return
-	} else {
-			user, _ := userModel.InsertUser(validUser)
-			c.JSON(200, gin.H{"message": "Success", "status": 200, "inserted": user})
-			return
+		if api_key != api_key_match {
+			panic("dibutuhkan api key yang benar untuk mengakses ini")
+		}
+		c.JSON(500, gin.H{ "error":  err.Error(), "status": 500 })
+		return
 	}
+	hashPassword, _ := passhash.HashString(validUser.Password)
+	validUser.Password = hashPassword
+	user, _ := userModel.InsertUser(validUser)
+	c.JSON(200, gin.H{"message": "Success", "status": 200, "inserted": user})
+	return
 }
 
 func (u UserController) Update(c *gin.Context) {

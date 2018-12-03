@@ -2,12 +2,15 @@ package controllers
 
 import (
   "fmt"
-  "gitlab.com/imbarwinata/go-rest-core-v1/config"
+  "github.com/imbarwinata/go-gin-gorm-bolerplate/config"
 )
 
-// Recover = meng-handle panic error
+// Declare Variables in package controllers
+var err error
+
+// Recover = handle panic error
 func catch(){
-  // recover() = mengembalikan error panic yg seharusnya muncul
+  // recover() = return error panic
   if err := recover(); err != nil {
     fmt.Println("Terjadi kesalahan :", err)
   }
