@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/config"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/db"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/routes"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/config"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/db"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/routes"
 )
 
 func main() {

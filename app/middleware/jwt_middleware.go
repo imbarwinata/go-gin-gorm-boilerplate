@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/models"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/helpers/jwtauth"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/app/models"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/helpers/jwtauth"
 )
 
 func jwtAbort(c *gin.Context, msg string) {

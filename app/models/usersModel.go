@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/forms"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/app/forms"
 )
 
 //User data struct

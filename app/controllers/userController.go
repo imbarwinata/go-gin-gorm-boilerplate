@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/forms"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/models"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/helpers/passhash"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/app/forms"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/app/models"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/helpers/passhash"
 )
 
 type UserController struct{}

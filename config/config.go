@@ -16,7 +16,9 @@ func Init(env string) {
 	config = viper.New()
 	config.SetConfigType("yaml")
 	config.SetConfigName(env)
-	config.AddConfigPath("../config/")
+	config.AddConfigPath("/root/go/src/github.com/imbarwinata/go-gin-gorm-boilerplate/config")
+	// config.AddConfigPath("/home/win/go/src/github.com/imbarwinata/go-gin-gorm-boilerplate/config")
+	// config.AddConfigPath("../config/")
 	config.AddConfigPath("config/")
 	err = config.ReadInConfig()
 	if err != nil {

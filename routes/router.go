@@ -2,8 +2,8 @@ package server
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/controllers"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/app/middleware"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/app/controllers"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/app/middleware"
 )
 
 func NewRouter() *gin.Engine {
@@ -12,6 +12,7 @@ func NewRouter() *gin.Engine {
 	article := new(controllers.ArticleController)
 	auth := new(controllers.AuthController)
 	health := new(controllers.HealthController)
+	siswa := new(controllers.SiswaController)
 	user := new(controllers.UserController)
 	// Declare Middleware
 	router := gin.New()
@@ -33,6 +34,14 @@ func NewRouter() *gin.Engine {
 		authorized.Use(middleware.JWTMiddleware())
 		{
 			authorized.GET("/articles", article.GetsAll)
+			siswaGroup := authorized.Group("siswa")
+			{
+				siswaGroup.GET("/", siswa.Gets)
+				siswaGroup.GET("/:id", siswa.Get)
+				siswaGroup.POST("/", siswa.Insert)
+				siswaGroup.PATCH("/:id/update", siswa.Update)
+				siswaGroup.DELETE("/:id/delete", siswa.Delete)
+			}
 			userGroup := authorized.Group("user")
 			{
 				userGroup.GET("/", user.Gets)

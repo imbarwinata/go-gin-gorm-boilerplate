@@ -2,7 +2,7 @@ package server
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/imbarwinata/go-gin-gorm-bolerplate/config"
+	"github.com/imbarwinata/go-gin-gorm-boilerplate/config"
 )
 
 func Init() {

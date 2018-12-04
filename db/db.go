@@ -2,8 +2,8 @@ package db
 
 import (
   "fmt"
-  "github.com/imbarwinata/go-gin-gorm-bolerplate/config"
-  "github.com/imbarwinata/go-gin-gorm-bolerplate/app/models"
+  "github.com/imbarwinata/go-gin-gorm-boilerplate/config"
+  "github.com/imbarwinata/go-gin-gorm-boilerplate/app/models"
 
   "github.com/jinzhu/gorm"
    _ "github.com/go-sql-driver/mysql"
@@ -44,7 +44,8 @@ func Init() {
   db.AutoMigrate(
     &models.User{},
     &models.Article{},
-    &models.Account{})
+    &models.Account{},
+    &models.Siswa{})
 }
 
 func GetDB() *gorm.DB {

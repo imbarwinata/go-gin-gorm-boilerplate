@@ -2,7 +2,7 @@ package models
 
 import (
   "fmt"
-  "github.com/imbarwinata/go-gin-gorm-bolerplate/config"
+  "github.com/imbarwinata/go-gin-gorm-boilerplate/config"
 
   "github.com/jinzhu/gorm"
   _ "github.com/go-sql-driver/mysql"
