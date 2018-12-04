@@ -1,17 +1,17 @@
 server.port     : ":8000"
 server.api_key  : "kmzway87aa"
-# Choose a database : mysql || postgres
+# Chose a database : mysql || postgres
 server.database : "mysql"
 
 mysql.host      : "127.0.0.1"
 mysql.port      : "3306"
-mysql.database  : "gin-gorm"
-mysql.username  : "root"
-mysql.password  : "lockedimbar"
+mysql.database  : ""
+mysql.username  : ""
+mysql.password  : ""
 
 psql.host       : "127.0.0.1"
 psql.port       : "5432"
-psql.database   : "gin-gorm"
-psql.username   : "postgres"
-psql.password   : "lockedimbar"
+psql.database   : ""
+psql.username   : ""
+psql.password   : ""
 psql.sslmode    : "disable"
