@@ -39,30 +39,30 @@ func NewRouter() *gin.Engine {
 				siswaGroup.GET("/", siswa.Gets)
 				siswaGroup.GET("/:id", siswa.Get)
 				siswaGroup.POST("/", siswa.Insert)
-				siswaGroup.PATCH("/:id/update", siswa.Update)
-				siswaGroup.DELETE("/:id/delete", siswa.Delete)
+				siswaGroup.PATCH("/:id", siswa.Update)
+				siswaGroup.DELETE("/:id", siswa.Delete)
 			}
 			userGroup := authorized.Group("user")
 			{
 				userGroup.GET("/", user.Gets)
 				userGroup.GET("/:id", user.Get)
-				userGroup.PATCH("/:id/update", user.Update)
-				userGroup.DELETE("/:id/delete", user.Delete)
+				userGroup.PATCH("/:id", user.Update)
+				userGroup.DELETE("/:id", user.Delete)
 				// User have articles
 				articleGroup := userGroup.Group(":id/article")
 				{
 					articleGroup.GET("/", article.Gets)
 					articleGroup.GET("/:articleid", article.Get)
 					articleGroup.POST("/", article.Insert)
-					articleGroup.PATCH("/:articleid/update", article.Update)
-					articleGroup.DELETE("/:articleid/delete", article.Delete)
+					articleGroup.PATCH("/:articleid", article.Update)
+					articleGroup.DELETE("/:articleid", article.Delete)
 				}
 				// User have account
 				accountGroup := userGroup.Group(":id/account")
 				{
 					accountGroup.GET("/", account.Get)
 					accountGroup.POST("/", account.Insert)
-					accountGroup.PATCH("/update", account.Update)
+					accountGroup.PATCH("/", account.Update)
 				}
 			}
 			peopleGroup := authorized.Group("people")

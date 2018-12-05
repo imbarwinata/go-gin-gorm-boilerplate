@@ -2,3 +2,4 @@
 ./config/production.yaml
 ./config/test.yaml
 ./helpers/jwtauth/jwtauth.go
+vendor/
